@@ -12,5 +12,40 @@ info:
   termsOfService: http://swagger.io/terms/
   title: QB blog Swagger API
   version: "1.0"
-paths: {}
+paths:
+  /api/v1/user/login:
+    post:
+      consumes:
+      - application/json
+      description: get accounts
+      parameters:
+      - description: 用户账号
+        in: query
+        name: account
+        type: string
+      - description: 用户密码
+        in: query
+        name: password
+        type: string
+      produces:
+      - application/json
+      summary: 用户登录接口
+      tags:
+      - accounts
+  /api/v1/user/register:
+    post:
+      consumes:
+      - application/json
+      description: get accounts
+      parameters:
+      - description: name search by q
+        format: email
+        in: query
+        name: q
+        type: string
+      produces:
+      - application/json
+      summary: 用户注册接口
+      tags:
+      - accounts
 swagger: "2.0"

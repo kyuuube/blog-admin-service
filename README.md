@@ -37,3 +37,4 @@ swag init
 
 ### URL
 swagger： http://localhost:3000/swagger/index.html
+gin-swagger： https://github.com/swaggo/gin-swagger
