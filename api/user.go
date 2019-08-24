@@ -3,7 +3,6 @@ package api
 import (
 	"blog-admin-service/serializer"
 	service "blog-admin-service/service/user"
-	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"time"
@@ -73,7 +72,6 @@ func UserLogin(c *gin.Context) {
 // @Param id query string false "用户id"
 // @Router /api/v1/user/me [get]
 func VenaUsor(c *gin.Context) {
-	fmt.Print("sssss")
 	var service service.UserInfoService
 	if err := c.ShouldBind(&service); err == nil {
 		if user, err := service.GetUserInfo(service.ID); err != nil {

@@ -1,6 +1,7 @@
 package model
 
 import (
+	"fmt"
 	uuid "github.com/satori/go.uuid"
 	"golang.org/x/crypto/bcrypt"
 	"time"
@@ -32,6 +33,7 @@ const (
 func GetUser(ID string) (User, error) {
 	var user User
 	result := DB.Where("id = ?", ID).First(&user)
+	fmt.Print(user)
 	return user, result.Error
 }
 
