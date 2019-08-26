@@ -18,6 +18,41 @@
     "host": "api.kyuuu.be",
     "basePath": "/v1",
     "paths": {
+        "/api/v1/user/list": {
+            "get": {
+                "description": "get user list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "获取用户列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyWords",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户角色",
+                        "name": "role",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "注册时间",
+                        "name": "creatTime",
+                        "in": "query"
+                    }
+                ]
+            }
+        },
         "/api/v1/user/login": {
             "post": {
                 "description": "get accounts",

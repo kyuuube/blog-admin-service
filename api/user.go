@@ -5,8 +5,12 @@ import (
 	service "blog-admin-service/service/user"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"time"
 )
+
+type MyCustomClaims struct {
+	Foo string `json:"foo"`
+	jwt.StandardClaims
+}
 
 // UserRegister
 // @Summary 用户注册接口
@@ -44,14 +48,7 @@ func UserLogin(c *gin.Context) {
 		if user, err := service.Login(); err != nil {
 			c.JSON(200, err)
 		} else {
-			//// 设置token
-			token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-				"foo": "bar",
-				"nbf": time.Date(2015, 10, 10, 12, 0, 0, 0, time.UTC).Unix(),
-			})
-
-			hmacSampleSecret := []byte("newtrekWang")
-			tokenString, err := token.SignedString(hmacSampleSecret)
+			tokenString, err := service.GenerateUserToken(user)
 			if err != nil {
 				c.JSON(200, err)
 			}
@@ -80,6 +77,26 @@ func VenaUsor(c *gin.Context) {
 			res := serializer.BuildUserInfoResponse(user)
 			c.JSON(200, res)
 		}
+	} else {
+		c.JSON(200, ErrorResponse(err))
+	}
+}
+
+// UserList
+// @Summary 获取用户列表
+// @Description get user list
+// @Tags accounts
+// @Accept  json
+// @Produce  json
+// @Param keyWords query string false "关键字"
+// @Param role query string false "用户角色"
+// @Param creatTime query string false "注册时间"
+// @Router /api/v1/user/list [get]
+func UserList(c *gin.Context) {
+	var service service.UserQueryService
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.GetUserList()
+		c.JSON(200, res)
 	} else {
 		c.JSON(200, ErrorResponse(err))
 	}

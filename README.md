@@ -27,13 +27,18 @@ swag init
 
 - [x] realize 热更新
 - [x] swagger 文档
-- [ ] gomybatis mysql配置
-- [ ] JWT、session
+- [x] ~~gomybatis~~ mysql配置
+- [x] JWT、~~session~~
 - [ ] redis
 - [ ] godotenv
 - [ ] i18n
 - [ ] 定时任务
 - [ ] docker
+- [ ] 用户管理
+- [ ] 角色管理
+- [ ] 权限管理
+- [ ] 内容管理
+- [ ] github 第三方登录
 
 ### URL
 swagger： http://localhost:3000/swagger/index.html

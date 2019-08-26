@@ -30,7 +30,7 @@ func BuildUser(user model.User, token string) User {
 		Nickname:  user.Nickname,
 		Status:    user.Status,
 		Avatar:    user.Avatar,
-		CreatedAt: user.CreatedAt.Unix(),
+		CreatedAt: user.CreatedAt,
 		Token:     token,
 	}
 }
@@ -54,4 +54,13 @@ func BuildUserInfoResponse(user model.User) UserResponse {
 	return UserResponse{
 		Data: BuildUser(user, ""),
 	}
+}
+
+// BuildUserList 序列化用户列表
+func BuildUserList(items []model.User) (users []User) {
+	for _, item := range items {
+		user := BuildUser(item, "")
+		users = append(users, user)
+	}
+	return users
 }

@@ -4,18 +4,18 @@ import (
 	"fmt"
 	uuid "github.com/satori/go.uuid"
 	"golang.org/x/crypto/bcrypt"
-	"time"
 )
 
 // User 用户模型
 type User struct {
 	ID             uuid.UUID
 	UserName       string
+	Role           int8
 	PasswordDigest string
 	Nickname       string
 	Status         int8
 	Avatar         string `gorm:"size:1000"`
-	CreatedAt      time.Time
+	CreatedAt      int64
 }
 
 const (
