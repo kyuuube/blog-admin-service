@@ -95,6 +95,12 @@ func VenaUsor(c *gin.Context) {
 func UserList(c *gin.Context) {
 	var service service.UserQueryService
 	if err := c.ShouldBind(&service); err == nil {
+		if service.Limit == 0 {
+			service.Limit = 20
+		}
+		if service.Start == 0 {
+			service.Start = 0
+		}
 		res := service.GetUserList()
 		c.JSON(200, res)
 	} else {
