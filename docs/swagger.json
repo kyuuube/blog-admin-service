@@ -39,7 +39,7 @@
                         "in": "query"
                     },
                     {
-                        "type": "string",
+                        "type": "integer",
                         "description": "用户角色",
                         "name": "role",
                         "in": "query"
@@ -48,6 +48,18 @@
                         "type": "string",
                         "description": "注册时间",
                         "name": "creatTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "分页数量",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "页码",
+                        "name": "start",
                         "in": "query"
                     }
                 ]

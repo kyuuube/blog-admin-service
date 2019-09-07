@@ -89,8 +89,10 @@ func VenaUsor(c *gin.Context) {
 // @Accept  json
 // @Produce  json
 // @Param keyWords query string false "关键字"
-// @Param role query string false "用户角色"
+// @Param role query int false "用户角色"
 // @Param creatTime query string false "注册时间"
+// @Param limit query string false "分页数量"
+// @Param start query string false "页码"
 // @Router /api/v1/user/list [get]
 func UserList(c *gin.Context) {
 	var service service.UserQueryService

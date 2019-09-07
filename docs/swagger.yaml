@@ -53,10 +53,18 @@ paths:
       - description: 用户角色
         in: query
         name: role
-        type: string
+        type: integer
       - description: 注册时间
         in: query
         name: creatTime
+        type: string
+      - description: 分页数量
+        in: query
+        name: limit
+        type: string
+      - description: 页码
+        in: query
+        name: start
         type: string
       produces:
       - application/json
