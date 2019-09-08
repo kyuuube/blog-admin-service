@@ -10,4 +10,5 @@ type menu struct {
 	Name     string    // 菜单名称
 	Route    string    // 菜单路由
 	Code     int64     // 菜单标识
+	Icon     string    // 菜单图标
 }
